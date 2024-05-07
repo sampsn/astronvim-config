@@ -1,0 +1,38 @@
+name: Update dev env config repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push_to_other_repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      
+      - name: Archive the repo
+        run: |
+          tar -czvf archive.tar.gz . # Archive all files
+
+      - name: Setup Git Config
+        run: |
+          git config --global user.name 'sampsn'
+          git config --global user.email 'g@samp.sn'
+      
+      - name: Clone the target repository
+        run: git clone https://github.com/sampsn/dev-env-config.git dev-config
+      
+      - name: Copy archive to target repository
+        run: |
+          tar -xf archive.tar.gz dev-config/nvim
+      
+      - name: Commit and push
+        run: |
+          cd dev-config
+          git add .
+          git commit -m "Add new nvim config changes."
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
