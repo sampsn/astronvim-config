@@ -47,10 +47,10 @@ jobs:
       # Adds, commits, and pushes changes to dev-env-config repo
       - name: Adds, commits, and pushes changes to dev-env-config repo
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MY_PAT: ${{ secrets.DEV_ENV_UPDATE_ACCESS_TOKEN }}
         run: |
           cd ../dev-env-config
           git add -A
           git commit -m "Update nvim config"
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/sampsn/dev-env-config.git
+          git remote set-url origin https://x-access-token:${MY_PAT}@github.com/sampsn/dev-env-config.git
           git push origin main
