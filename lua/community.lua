@@ -8,6 +8,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python-ruff" },
   { import = "astrocommunity.pack.go" },
+  { import = "astrocommunity.pack.html-css" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
