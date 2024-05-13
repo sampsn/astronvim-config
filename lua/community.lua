@@ -12,6 +12,8 @@ return {
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.color.transparent-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.split-and-window.windows-nvim" },
+  { import = "astrocommunity.color.tint-nvim" },
   -- { import = "astrocommunity.test.neotest" },
   -- import/override with your plugins folder
 }
